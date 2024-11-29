@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BTC Price Prediction</title>
+</head>
+<body>
+  <h1>BTC Price Prediction</h1>
+  <div id="price-data">
+    <!-- Data will be displayed here -->
+  </div>
+  <script>
+    fetch('https://organic-space-guacamole-jj55j565q7r7fjpw7-8080.app.github.dev/') // Replace with your server address
+      .then(response => response.json())
+      .then(data => {
+        const priceData = document.getElementById('price-data');
+        priceData.innerHTML = `
+          <p>Current Price: ${data.current_price}</p>
+          <p>Tomorrow's Price Prediction: ${data.tomorrow_price}</p>
+          <p>Price Comparison: ${data.price_comparison}</p>
+          <p>Recommendation: ${data.recommendation}</p>
+        `;
+      });
+  </script>
+</body>
+</html>
